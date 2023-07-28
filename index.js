@@ -68,3 +68,109 @@ function testEqual(val) {
 }
 
 console.log(testEqual(10));
+
+// comparison with the less than or equal to operator
+function testLessOrEqual(val) {
+    if (val <= 12) {
+        return "Smaller Than or Equal to 12";
+    }
+
+    if (val <= 24) {
+        return "Smaller Than or Equal to 24";
+    }
+
+    return "More Than 24";
+}
+
+console.log(testLessOrEqual(10))
+
+
+// Comparisons with the Logical and operator
+
+function testLogicalAnd(val) {
+
+    if (val <= 50 && val >= 25) {
+        return "Yes";
+    }
+
+    return "No";
+}
+
+console.log(testLogicalAnd(10));
+
+
+// comparisons with the logical or operator
+function testLogicalOr(val) {
+if (val < 10 || val > 20) {
+    return "Outside";
+}
+ return "Inside";
+}
+
+console.log(testLogicalOr(15));
+
+
+// Else if statement
+function testElseIf(val) {
+    if (val >10) {
+      return "Greater than 10";
+    } else if (val < 5) {
+      return "Smaller than 5"; 
+    } else{
+      return "Between 5 and 10";  
+    }
+}
+testElseIf(7);
+
+// Logical Order in If Else Statements
+function orderMyLogic(val) {
+    if (val < 5) {
+        return "Less than 5";
+    }else if (val < 10) {
+        return "Less than 10";
+    }else {
+        return "Greater than or equal to 10";
+    }
+}
+
+console.log(orderMyLogic(7));
+
+// Chaining if else statements
+
+function testSize(num) {
+    if (num <5) {
+        return "Tiny"
+    } else if (num < 10) {
+      return "small"  
+    } else if (num < 15) {
+      return "medium"
+    } else if (num < 20) {
+      return "Large"   
+    } else {
+        return "Huge"
+    }
+}
+
+console.log(testSize(19))
+
+// Golf Code
+var names = ["Hole-in-one!", "Eagle", "Birdie", "Par", "Bogey", "Double Bogey", "Go Home"];
+function golfScore(par, strokes) {
+    if (strokes ==1) {
+      return names[0] 
+    } else if (strokes <= par -2) {
+      return names[1]
+    } else if (strokes == par -1) {
+      return names[2]  
+    } else if (strokes == par) {
+      return names[3]
+    } else if (strokes == par + 1) {
+      return names[4]
+    } else if (strokes == par + 2) {
+      return names[5]
+    } else if (strokes >= par + 3) {
+      return names[6]
+    }
+}
+
+console.log(golfScore(5, 7));
