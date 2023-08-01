@@ -174,3 +174,116 @@ function golfScore(par, strokes) {
 }
 
 console.log(golfScore(5, 7));
+
+// Switch statements
+function caseInSwitch(val) {
+    var answer = "";
+    switch(val) {
+        case 1:
+            answer = "alpha";
+            break;
+        case 2:
+            answer = "beta";
+            break;    
+        case 3:
+            answer = "gamma";
+            break;    
+        case 4:
+            answer = "delta";
+            break;    
+    }
+    return answer;
+}
+
+console.log(caseInSwitch(3));
+
+// Default Option in Switch Statements
+function switchOfStuff(val) {
+    var answer = "";
+    switch(val) {
+        case 1:
+            answer = "alpha";
+            break;
+        case 2:
+            answer = "beta";
+            break;    
+        case 3:
+            answer = "gamma";
+            break;    
+        case 4:
+            answer = "delta";
+            break;    
+        default:
+            answer = "stuff";
+            break;    
+    }
+    return answer;
+}
+
+console.log(switchOfStuff(5));
+
+// Multiple Identical Options in Switch Statements
+function sequentialSizes(val) {
+    var answer = "";
+    switch(val) {
+        case 1:
+        case 2:
+        case 3:
+            answer = "Low";
+            break;           
+        case 4:
+        case 5:
+        case 6:
+            answer = "Mid";
+            break;           
+        case 7:
+        case 8:
+        case 9:
+            answer = "High";
+            break;           
+    }
+    return answer;
+}
+
+console.log(sequentialSizes(9));
+
+// returning Boolean values from functions
+function isLess(a, b) {
+    return a < b;
+}
+
+console.log(isLess(20, 15));
+
+// Build Javascript objects
+
+var myDog = {
+    "name": "Quincy",
+    "legs": 3,
+    "tails":2,
+    "friends":[]
+}
+
+// Accessing Object Properties with Dot Notation
+
+var testObj = {
+    "hat": "ballcap",
+    "shirt": "jersey",
+    "shoes": "cleats"
+};
+
+var hatValue = testObj.hat;
+var shirtValue = testObj.shirt;
+
+console.log(testObj.shoes);
+
+// Accessing Object Properties with bracket notation 
+var testObj = {
+    "an entree": "hamburger",
+    "my side": "veggies",
+    "the drink": "water"
+};
+
+var entreeValue = testObj["an entree"];
+var drinkValue = testObj['the drink'];
+
+console.log(testObj["my side"]);
