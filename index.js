@@ -439,3 +439,521 @@ console.log(myArray);
 
 
 // Iterate with For Loops
+// first thing is the initiating second condition and final expression
+
+var myArray = [];
+
+for (var i = 1; i < 6; i++) {
+    myArray.push(i);
+}
+
+console.log(myArray);
+
+//Iterate Odd Numbers with a for loop
+
+for (var i = 1; i < 10; i += 2) {
+    myArray.push(i);
+}
+
+console.log(myArray);
+
+// count Backwards with a for loop
+
+var backArray = [];
+
+for (var i = 9; i > 0; i -= 2) {
+    backArray.push(i);
+}
+
+console.log(backArray);
+
+// Iterate Through an Array with a for Loop
+
+var myArr = [ 2, 3, 4, 5, 6 ];
+var total = 0;
+
+for (var i = 0; i < myArr.length; i++) {
+    total += myArr[i];
+}
+
+console.log(total);
+
+// Nesting For Loops
+
+function multiplyAll(arr) {
+    var product = 1;
+
+    for (var i=0; i < arr.length; i++) {
+        for (var j=0; j <arr[i].length; j++){
+            product *= arr[i][j];
+        }
+    }
+    return product;
+}
+
+var product = multiplyAll([[1,2],[3,4],[5,6,7]]);
+
+console.log(product);
+
+
+// Iterate with Do...While Loops
+
+var myArray = [];
+var i = 10;
+
+do{
+    myArray.push(i);
+    i++;
+  }  while(i < 5)
+ 
+  console.log(i, myArray);
+
+
+
+// Profile lookup
+
+var contacts = [
+    {
+        "firstname": "Akira",
+        "lastname": "Laine",
+        "number": "+358-123456",
+        "likes": ["Pizza", "Coding", "Brownie Points"]
+    },
+    {
+        "firstname": "Harry",
+        "lastname": "Potter",
+        "number": "+358-987654",
+        "likes": ["Hogwarts", "Magic", "Quidditch"]
+    },
+    {
+        "firstname": "Sherlock",
+        "lastname": "Holmes",
+        "number": "+358-555555",
+        "likes": ["Intriguing Cases", "Violin"]
+    },
+    {
+        "firstname": "Kristian",
+        "lastname": "Vos",
+        "number":"unknown",
+        "likes":["JavaScript","Coffee"]
+    }
+];
+
+function lookUpProfile(name, prop){
+   for (var i=0; i<contacts.length; i++){
+     if (contacts[i].firstname === name){
+        return contacts[i][prop] || 'No such property';
+     }
+   }
+   return "No such contact";
+}
+
+var data = lookUpProfile("Kristian", "number");
+
+console.log(data);
+
+
+// Generate Random Fractions
+
+function randomFraction() {
+
+    return Math.random();
+}
+
+console.log(randomFraction());
+
+
+// Generate Random Whole Numbers
+
+var randomNumberBetween0and19 = Math.floor(Math.random() * 20);
+
+function randomWholeNum() {
+
+return Math.floor(Math.random() * 10);
+}
+
+console.log(randomWholeNum());
+
+
+// Use the parseInt Function
+
+function convertToInteger(str) {
+    return parseInt(str);
+}
+
+console.log(convertToInteger("56"));
+
+
+// use the parseInt Function with a Radix
+
+function convertToInteger(str) {
+    return parseInt(str, 2)
+}
+
+convertToInteger("10011");
+
+
+//use the Conditional (ternary) Operator
+
+function checkEqual(a, b) {
+    return a === b ? true : false;
+}
+
+console.log(checkEqual(1, 2));
+
+
+
+//Use Multiple Conditional (Ternary) Operators
+
+function checkSign(num) {
+    return num > 0 ? "positive" : num < 0 ? "negative" : "zero"
+}
+
+console.log(checkSign(-9));
+
+
+//compare Scopes of the var and let keywords 
+
+function checkScope() {
+"use strict";
+  let i = "function scope";
+  if (true) {
+    let i = "block scope";
+    console.log("Block scope i is: ", i);
+  }
+  console.log("Function scope i is: ", i);
+  return i;
+}
+
+checkScope();
+
+
+//Declare a Read-Only Variable with the const Keyword
+
+function printManyTimes(str) {
+    "use strict";
+
+    const SENTENCE = str + " is cool!";
+
+    for(let i = 0; i < str.length; i+=2) {
+      console.log(SENTENCE);
+    }
+}
+printManyTimes("freeCodeCamp");
+
+
+//Mutate and Array Declared with const
+const s = [5, 7, 2];
+function editInPlace() {
+    "use strict";
+
+  
+    //s = [2, 5, 7];
+   s[0] = 2;
+   s[1] = 5;
+   s[2] = 7;
+    
+
+}
+editInPlace();
+
+console.log(s)
+
+
+//Prevent Object Mutation
+
+// function freezeObj() {
+//     "use strict";
+//     const MATH_CONSTANTS = {
+//         PI: 3.14
+//     };
+
+//     Object.freeze(MATH_CONSTANTS);
+
+//     try {
+//       MATH_CONSTANTS.PI = 99;
+//     } catch( ex ) {
+//         console.log(ex);
+//     }
+//     return MATH_CONSTANTS.PI;
+// }
+
+// const PI = freezeObj();
+
+
+
+// Use arrow functions to write concise anonymous functions
+
+const magic = () => new Date();
+
+console.log(magic);
+
+
+//Write Arrow Functions with Parameters
+
+const myConcat = (arr1, arr2) => arr1.concat(arr2);
+
+console.log(myConcat([1, 2], [3,4,5]));
+
+
+
+// Write Higher Order Arrow Functions
+
+const realNumberArray = [4, 5.6, -9.8, 3.14, 42, 6, 8.34, -2];
+
+const squareList = (arr) => {
+    const squaredIntegers = arr.filter(num => Number.isInteger(num) && num > 0).map(x => x * x);
+    return squaredIntegers;
+};
+
+const squaredIntegers = squareList(realNumberArray);
+console.log(squaredIntegers);
+
+
+const increment = (function() {
+    return function increment(number, value = 1) {
+        return number + value;
+    };
+})();
+console.log(increment(5, 2));
+console.log(increment(5));
+
+
+
+// Use the Rest Operator with Function Parameters
+
+const sum = (function() {
+    return function sum(...args) {
+      return args.reduce((a, b) => a + b, 0);
+    };
+})();
+console.log(sum(1, 2, 3, 4));
+
+// Use the Spread Operator to Evaluate Arrays In-Place
+
+const arr1 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY'];
+let arr2;
+(function() {
+    arr2 = [...arr1];
+    arr1[0] = 'potato'
+})();
+console.log(arr2);
+
+
+
+// Use Destructuring Assignment to Assign Variables from Objects
+
+// The provided code defines an object AVG_TEMPERATURES with properties representing the
+// average temperatures for "today" and "tomorrow". The function getTemOfTmrw uses 
+// destructuring assignment to extract the temperature of tomorrow from the avgTemperatures 
+// parameter, which is an object.
+
+
+const AVG_TEMPERATURES = {
+    today: 77.5,
+    tomorrow: 79
+};
+
+function getTemOfTmrw(avgTemperatures) {
+    "use strict";
+    const { tomorrow : tempOfTomorrow } = avgTemperatures;
+    return tempOfTomorrow;
+}
+
+// In this example, the getTemOfTmrw function takes an object (avgTemperatures) as a parameter. 
+// Using destructuring assignment, it extracts the value associated with the "tomorrow" property 
+// and assigns it to the variable tempOfTomorrow. Finally, the function returns the temperature of tomorrow.
+
+// The const { tomorrow: tempOfTomorrow } = avgTemperatures; line is a destructuring assignment, a feature introduced in ECMAScript 6 (ES6), which allows you to extract values from objects and arrays.
+
+console.log(getTemOfTmrw(AVG_TEMPERATURES));
+
+
+
+// Destructing Assignment with Nested Objects
+
+const LOCAL_FORECAST = {
+    today: { min: 72, max: 83 },
+    tomorrow: { min: 73.3, max: 84.6 }
+};
+
+function getMaxOfTmrw(forecast) {
+    "use strict";
+
+    const { tomorrow : { max : maxOfTomorrow }} = forecast;
+
+    return maxOfTomorrow;
+}
+
+console.log(getMaxOfTmrw(LOCAL_FORECAST));
+
+
+
+// Use Destructing Assignment to Assign Variables from Arrays
+const [z, x, , y] = [1, 2, 3, 4, 5, 6];
+console.log(z, x, y);
+
+
+let e = 8, g = 6;
+(() => {
+    "use strict";
+    [e ,g] = [g, e]
+})();
+console.log(e);
+console.log(g); 
+
+
+
+
+// Use Destructing Assignment with the Rest Operator
+
+const source = [1,2,3,4,5,6,7,8,9,10];
+function removeFirstTwo(list) {
+
+    const [ , , ...crr] = list;
+
+    return crr;
+}
+
+const crr = removeFirstTwo(source);
+console.log(crr);
+console.log(source);
+
+
+
+// Use Destructing Assignment to pass an Object as a Function's Parameters
+const stats = {
+    max: 56.78,
+    standard_deviation: 4.34,
+    mediian: 34.54,
+    mode: 23.87,
+    min: -0.75,
+    average: 35.85
+};
+const half = (function() {
+
+    return function half({ max, min }) {
+        return (max + min) / 2.0;
+    };
+
+})();
+console.log(stats);
+console.log(half(stats));
+
+
+
+// Create Strings using Template Literals
+
+const person = {
+    name: "Zodiac Hasbro",
+    age: 56
+};
+const greeting = `Hello, my name is ${person.name}!
+I am ${person.age} years old.`;
+
+console.log(greeting);
+
+
+const result = {
+    success: ["max-length", "no-amd", "prefer-arrow-functions"],
+    failure: ["no-var", "var-on-top", "linebreak"],
+    skipped: ["id-blacklist", "no-dup-keys"]
+};
+function makeList(arr) {
+    const resultDisplayArray = [];
+    for (let i = 0; i < arr.length; i++) {
+        resultDisplayArray.push(`<li class="text-warning">${arr[i]}</li>}`)
+}
+
+return resultDisplayArray;
+}
+
+const resultDisplayArray = makeList(result.failure);
+
+console.log(resultDisplayArray)
+
+
+
+// Write Concise Object Literal Declarations Using Simple Fields
+const createPerson = (name, age, gender) => ( { name, age, gender });
+console.log(createPerson("Zodiac Hasbro", 56, "male")); 
+
+
+
+// Write Concise Declarative Functions
+
+const bicycle = {
+    gear: 2,
+    setGear(newGear){
+        this.gear = newGear;
+        }
+};
+
+bicycle.setGear(3);
+console.log(bicycle.gear);
+
+
+
+
+
+// Use Class syntax to Define a Constructor Function
+class SpaceShuttle {
+    constructor(targetPlanet){
+        this.targetPlanet = targetPlanet;
+    }
+}
+var zeus = new SpaceShuttle('Jupiter');
+
+console.log(zeus.targetPlanet)
+
+
+
+
+
+// Use getters and setters to Control Access to an Object
+
+function makeClass() {
+    class Thermostat {
+        constructor(temp) {
+            this._temp = 5/9 * (temp - 32);
+        }
+        get temperature(){
+            return this._temp;
+        }
+        set temperature(updatedTemp){
+            this._temp = updatedTemp;
+        }
+    }
+    return Thermostat;
+}
+
+const Thermostat = makeClass();
+const thermos = new Thermostat(76);
+let temp = thermos.temperature;
+thermos.temperature = 26;
+temp = thermos.temperature;
+console.log(temp);
+
+
+
+
+
+
+// Create a JavaScript Class for a Book with properties and methods
+class Book{
+    constructor(title, author, isbn){
+        this.title= title;
+        this.author= author;
+        this.isbn= isbn;
+        }
+        displayBookInfo(){
+            console.log(`Title: ${this.title}, Author: ${this.author}, ISBN: ${this.isbn}`);
+            };
+            };
+            console.log(`Title: ${this.title}, Author: ${this.author}, ISBN: ${this.isbn}`);
+
+
+
+
+
+// Understand the Difference Between import and require            
